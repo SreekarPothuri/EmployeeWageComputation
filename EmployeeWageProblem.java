@@ -11,22 +11,26 @@ public class EmployeeWageProblem{
 		System.out.println("*****WELCOME TO EMPLOYEE WAGE PROBLEM*****");
 
 		double EmpCheck = Math.floor(Math.random() * 10) % 3;
+		int CheckEmp =(int) EmpCheck;//Type casting double to int for Emp attendance check
 
-		if(EmpCheck == 1)
+		switch(CheckEmp)
 		{
-			System.out.println("Full Time Employee is Present");
-			DailyWage = WagePerHr * HrsPerDay_FullTime;
-			System.out.println("Daily Wage is "+DailyWage);
-		}
-		else if(EmpCheck ==2)
-		{
-			System.out.println("Part Time Employee is Present");
-			DailyWage = WagePerHr * HrsPerDay_PartTime;
-			System.out.println("Daily Wage is "+DailyWage);
-		}
-		else
-		{
-			System.out.println("Employee is Absent");
+			case 0:
+				System.out.println("Employee is Absent");
+				break;
+			case 1:
+				System.out.println("FullTime Employee is Present");
+				DailyWage = WagePerHr * HrsPerDay_FullTime;
+				System.out.println("Daily Wage is "+DailyWage);
+				break;
+			case 2:
+				System.out.println("Part Time Employee is present");
+				DailyWage = WagePerHr * HrsPerDay_PartTime;
+				System.out.println("Daily Wage is "+DailyWage);
+				break;
+			default:
+				System.out.println("Invalid");
+				break;
 		}
 	}
 }
