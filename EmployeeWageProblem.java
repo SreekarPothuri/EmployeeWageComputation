@@ -17,6 +17,11 @@ public class EmployeeWageProblem{
 
 		for(int i=1; i<= Max_WorkingDaysPerMonth; i++)
 		{
+			if(WorkingHrs>100)
+			{
+				DailyWage = 0;
+				MonthlyWage+=DailyWage;
+			}
 			if(WorkingHrs<=100)
 			{
 				double EmpCheck = Math.floor(Math.random() * 10) % 3;
