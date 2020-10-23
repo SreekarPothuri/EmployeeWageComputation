@@ -1,25 +1,27 @@
+import java.util.ArrayList;
+
 public class EmployeeWageProblem implements Computable{
 	public static final int IS_FULL_TIME=1;
         public static final int IS_PART_TIME=2;
 
 	private int TotalWage;
 
-	private int numOfCompanies = 0;
-	private CompanyEmployeeWage[] CompanyEmployeeWageArray;
+	private ArrayList<CompanyEmployeeWage> EmpWageArray;
 
 	public EmployeeWageProblem(){
-		CompanyEmployeeWageArray = new CompanyEmployeeWage[5];
+		EmpWageArray = new ArrayList<>();
 	}
 
 	public void addCompanyEmployeeWage(String COMPANY,int WAGE_PER_HR,int MAX_WORKINGDAYS_PER_MONTH,int MAX_WORKINGHRS_PER_MONTH,int NUM_OF_EMPLOYEES){
-		CompanyEmployeeWageArray[numOfCompanies] = new CompanyEmployeeWage(COMPANY,WAGE_PER_HR,MAX_WORKINGDAYS_PER_MONTH,MAX_WORKINGHRS_PER_MONTH,NUM_OF_EMPLOYEES);
-		numOfCompanies++;
+		CompanyEmployeeWage CompanyEmployeeWage = new CompanyEmployeeWage(COMPANY,WAGE_PER_HR,MAX_WORKINGDAYS_PER_MONTH,MAX_WORKINGHRS_PER_MONTH,NUM_OF_EMPLOYEES);
+		EmpWageArray.add(CompanyEmployeeWage);
 	}
 
 	public void computeEmpWage(){
-		for(int i=0;i<numOfCompanies;i++){
-			CompanyEmployeeWageArray[i].setMonthlyWage(this.computeEmpWage(CompanyEmployeeWageArray[i]));
-			System.out.println(CompanyEmployeeWageArray[i]);
+		for(int i=0;i<EmpWageArray.size();i++){
+			CompanyEmployeeWage CompanyEmployeeWage = EmpWageArray.get(i);
+			CompanyEmployeeWage.setMonthlyWage(this.computeEmpWage(CompanyEmployeeWage));
+			System.out.println(CompanyEmployeeWage);
 		}
 	}
 
