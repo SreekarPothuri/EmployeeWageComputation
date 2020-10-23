@@ -52,7 +52,7 @@ public class EmployeeWageProblem implements Computable{
                 }
                 CompanyEmployeeWage.MonthlyWage = WorkingHrs * CompanyEmployeeWage.WAGE_PER_HR;
 		TotalWage = CompanyEmployeeWage.MonthlyWage * CompanyEmployeeWage.NUM_OF_EMPLOYEES;
-		System.out.println("Total Wage for Company is "+TotalWage);
+		System.out.println("Total Wage of Company is "+TotalWage);
 		return CompanyEmployeeWage.MonthlyWage;
         }
 
