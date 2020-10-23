@@ -1,4 +1,4 @@
-public class EmployeeWageProblem {
+public class EmployeeWageProblem implements Computable{
 	public static final int IS_FULL_TIME=1;
         public static final int IS_PART_TIME=2;
 
@@ -11,12 +11,12 @@ public class EmployeeWageProblem {
 		CompanyEmployeeWageArray = new CompanyEmployeeWage[5];
 	}
 
-	private void addCompanyEmployeeWage(String COMPANY,int WAGE_PER_HR,int MAX_WORKINGDAYS_PER_MONTH,int MAX_WORKINGHRS_PER_MONTH,int NUM_OF_EMPLOYEES){
+	public void addCompanyEmployeeWage(String COMPANY,int WAGE_PER_HR,int MAX_WORKINGDAYS_PER_MONTH,int MAX_WORKINGHRS_PER_MONTH,int NUM_OF_EMPLOYEES){
 		CompanyEmployeeWageArray[numOfCompanies] = new CompanyEmployeeWage(COMPANY,WAGE_PER_HR,MAX_WORKINGDAYS_PER_MONTH,MAX_WORKINGHRS_PER_MONTH,NUM_OF_EMPLOYEES);
 		numOfCompanies++;
 	}
 
-	private void computeEmpWage(){
+	public void computeEmpWage(){
 		for(int i=0;i<numOfCompanies;i++){
 			CompanyEmployeeWageArray[i].setMonthlyWage(this.computeEmpWage(CompanyEmployeeWageArray[i]));
 			System.out.println(CompanyEmployeeWageArray[i]);
